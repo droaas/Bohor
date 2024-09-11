@@ -2,22 +2,22 @@ import pandas as pd
 import numpy as np
 
 ##### حالات العلل والزحاف في العروض والضراب
-ad_cases=pd.read_csv('corpus\\arod_drb_cases.csv',sep='\t',encoding='utf-16')
-seas_tafilat_code=pd.read_csv('corpus\\Seas_cases.csv',sep='\t',encoding='utf-16')
-ailla_zihaf=pd.read_csv('corpus\\ailla_zihaf.csv',sep='\t',encoding='utf-16')
+ad_cases=pd.read_csv('corpus/arod_drb_cases.csv',sep='\t',encoding='utf-16')
+seas_tafilat_code=pd.read_csv('corpus/Seas_cases.csv',sep='\t',encoding='utf-16')
+ailla_zihaf=pd.read_csv('corpus/ailla_zihaf.csv',sep='\t',encoding='utf-16')
 ##########
-si = pd.read_csv('corpus\\Seas_info.csv', sep='\t', encoding='utf-16')
+si = pd.read_csv('corpus/Seas_info.csv', sep='\t', encoding='utf-16')
 sea_dict = dict(zip(si['Snum'], si['Sname']))
 ########### مثال لحالات الضرب والعروض
 ad_cases.head()
 #############
 ### استدعاء قواعد انماط التفعيلات التي تم اعداها اعتمادا على ستة مراجع ذهبية لعلم العروض  بالاضافة الى مراجعة خبراء في العروض
-ard_drb=pd.read_csv('corpus\\rule1_ard_drb.csv',sep='\t',encoding='utf-16')
-hsho_info=pd.read_csv('corpus\\rule2_hsho_info.csv',sep='\t',encoding='utf-16')
-hsho_tfilah=pd.read_csv('corpus\\rule3_hsho_tfilah.csv',sep='\t',encoding='utf-16')
-ver_info=pd.read_csv('corpus\\rule4_byt_info.csv',sep='\t',encoding='utf-16')
+ard_drb=pd.read_csv('corpus/rule1_ard_drb.csv',sep='\t',encoding='utf-16')
+hsho_info=pd.read_csv('corpus/rule2_hsho_info.csv',sep='\t',encoding='utf-16')
+hsho_tfilah=pd.read_csv('corpus/rule3_hsho_tfilah.csv',sep='\t',encoding='utf-16')
+ver_info=pd.read_csv('corpus/rule4_byt_info.csv',sep='\t',encoding='utf-16')
 # استدعاء معلومات البحور
-si=pd.read_csv('corpus\\Seas_info.csv',sep='\t',encoding='utf-16')
+si=pd.read_csv('corpus/Seas_info.csv',sep='\t',encoding='utf-16')
 sc=seas_tafilat_code.copy()
 #####################
 cse=[]
@@ -186,7 +186,7 @@ def get_tafilah_pattern(sid,arod_drb_case,hshw_info,pattern):
 
 
 def get_sea_pattern(sid):
-    st=pd.read_csv('corpus\\Seas_cases.csv',sep='\t',encoding='utf-16')
+    st=pd.read_csv('corpus/Seas_cases.csv',sep='\t',encoding='utf-16')
     s=st[(st.Sid==sid)]
     pattern={}
     # (العلل والزحافات) حصر جميع التفعيلات الجائزة للبحر
